@@ -1,2 +1,7 @@
-"# Trados-log-shaping" 
-"# Trados-log-shaping" 
+# Trados-log-shaping 
+
+## OVERVIEW
+log format.
+
+## AUTHOR
+Kenta Goto  
