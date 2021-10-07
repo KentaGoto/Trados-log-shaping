@@ -5,8 +5,8 @@ import shutil
 import os
 
 
-def inputExcel(countT, count, ws, s):
-    # 文字数カウントを処理する
+# エクセルへの入力
+def inputExcel(countStr, count, ws, s):
     if count == 1:
         print('file -> ' + s)
         a = 'A' + countStr
@@ -60,10 +60,6 @@ def inputExcel(countT, count, ws, s):
         m = 'M' + countStr
         ws[m].value = int(s)
 
-    if count <= 12:
-        count += 1
-    elif count == 13:
-        count = 1
 
 if __name__ == '__main__':
     s = input("File: ")
@@ -83,34 +79,34 @@ if __name__ == '__main__':
 
     # Excelを準備
     wb = openpyxl.load_workbook(resultsFile)
-    ws = wb['Sheet1']
-    countT = 1
+    ws = wb['Characters']
+    ws2 = wb['Words']
 
     # Main
+    countT = 1
+    flag = 0
+    count = 1
     for tr in trs:
-        flag = 0
-        count = 1
-        
         for td in tr.find_all('td'):
             s = td.text
-
-            # ワードカウントは対象外とする
+            
+            # ワードカウント分が出てきたら新たにセットする
             if s == 'Total (words)':
                 flag += 1
-                break
+                countT = 2
+                count = 1
 
             countStr = str(countT)
 
-            inputExcel(countT, count, ws, s) # エクセルに入力する
+            if flag == 0:
+                inputExcel(countStr, count, ws, s) # Charactorsシートに入力する
+            elif flag <= 1:
+                inputExcel(countStr, count, ws2, s) # Wordsシートに入力する
 
             if count <= 12:
                 count += 1
             elif count == 13:
                 count = 1
-        
-        # ワードカウント分は出さない
-        if flag > 0:
-            break
 
         countT += 1 # エクセルの入力行
     
@@ -118,5 +114,5 @@ if __name__ == '__main__':
     wb.close()
     wb.save(resultsFile)
 
-    print('Done!')
+    print("\n" + 'Done!')
     os.system("pause > nul")
