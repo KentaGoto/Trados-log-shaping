@@ -1,10 +1,7 @@
 # Trados-log-shaping 
 
 ## OVERVIEW
-log format.
-
-### Note
-文字数カウントのみ対象とする。  
+[社内用] 「Trados Log」から生成された html（文字数およびワード数）を対象とする。    
 
 ## AUTHOR
 Kenta Goto  
