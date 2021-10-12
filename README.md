@@ -1,10 +1,9 @@
 # Trados-log-shaping 
 
 ## OVERVIEW
-log format.
+[社内用] 「Trados Log」から生成された html（文字数およびワード数）を対象とする。    
+出力結果のエクセルに文字数とワード数の解析ログが別々のシートに入る。  
 
-### Note
-文字数カウントのみ対象とする。  
 
 ## AUTHOR
 Kenta Goto  
