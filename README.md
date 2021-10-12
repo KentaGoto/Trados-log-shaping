@@ -7,3 +7,6 @@
 
 ## AUTHOR
 Kenta Goto  
+
+## License
+MIT
