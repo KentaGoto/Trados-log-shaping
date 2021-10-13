@@ -1,8 +1,8 @@
 # Trados-log-shaping 
 
 ## OVERVIEW
-「Trados Log」から生成された html（文字数およびワード数）を対象とする。    
-出力結果のエクセルに文字数とワード数の解析ログが別々のシートに入る。  
+This tool is no longer in use because it has been implemented at
+https://github.com/KentaGoto/Trados-LOG  
 
 
 ## AUTHOR
