@@ -1,5 +1,6 @@
 import bs4
 import openpyxl
+from openpyxl.styles import Border, Side
 import datetime
 import shutil
 import os
@@ -110,6 +111,19 @@ if __name__ == '__main__':
 
         countT += 1 # エクセルの入力行
     
+    side = Side(style="thin", color="000000") # セルの線
+    countT = countT - 1
+
+    # セルの線を付ける
+    for row in ws["A3":"M" + str(countT)]:
+        for cell in row:
+            cell.border = Border(left=side, right=side, top=side, bottom=side)
+    
+    for row in ws2["A3":"M" + str(countT)]:
+        for cell in row:
+            cell.border = Border(left=side, right=side, top=side, bottom=side)
+
+
     # Excelを閉じて保存
     wb.close()
     wb.save(resultsFile)
