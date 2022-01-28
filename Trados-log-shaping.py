@@ -25,9 +25,16 @@ def inputExcel(countStr, count, ws, s):
         d = 'D' + countStr
         ws[d].value = int(s)
     elif count == 5:
-        print('crossFileRepetitions -> ' + s)
-        e = 'E' + countStr
-        ws[e].value = int(s)
+        if type(s) == str:
+            if s == "":
+                s_zero = "0"
+                print('contextMatchRate -> ' + s_zero)
+                e = 'E' + countStr
+                ws[e].value = int(s_zero)
+        else:
+            print('contextMatchRate -> ' + s)
+            e = 'E' + countStr
+            ws[e].value = int(s)
     elif count == 6:
         print('repeated -> ' + s)
         f = 'F' + countStr
