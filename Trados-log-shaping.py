@@ -25,6 +25,7 @@ def inputExcel(countStr, count, ws, s):
         d = 'D' + countStr
         ws[d].value = int(s)
     elif count == 5:
+        # 処理対象のHTMLでCross File Repに空文字がある場合に対応
         if type(s) == str:
             if s == "":
                 s_zero = "0"
